@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atomica | Quantum Physics Calculator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Floating quantum background elements -->
+  <div class="quantum-bg">
+    <div class="quantum-particle" style="top:20%; left:10%;">Ψ</div>
+    <div class="quantum-particle" style="top:70%; left:80%; animation-delay:2s;">Δ</div>
+    <div class="quantum-particle" style="top:40%; left:50%; animation-delay:4s;">ħ</div>
+    <div class="quantum-particle" style="top:80%; left:30%; animation-delay:6s;">λ</div>
+    <div class="quantum-particle" style="top:30%; left:70%; animation-delay:8s;">φ</div>
+  </div>
+
+  <div class="container">
+    <!-- Homepage -->
+    <div class="page active" id="home">
+      <div class="hero">
+        <h1>Atomica</h1>
+        <p>Explore the fascinating world of quantum physics with our interactive calculator. 
+        Solve complex equations, visualize quantum phenomena, and deepen your understanding 
+        of the subatomic realm.</p>
+      </div>
+      
+      <div class="formula-categories">
+        <div class="category-card" onclick="showPage('uncertainty')">
+          <h2>Heisenberg Uncertainty Principle</h2>
+          <p>Δx · Δp ≥ ħ/2</p>
+        </div>
+        
+        <div class="category-card" onclick="showPage('schrodinger')">
+          <h2>Schrödinger Equation</h2>
+          <p>iħ(∂ψ/∂t) = Ĥψ</p>
+        </div>
+        
+        <div class="category-card" onclick="showPage('wavefunction')">
+          <h2>Wave Function</h2>
+          <p>ψ(x) = √(2/L) sin(nπx/L)</p>
+        </div>
+        
+        <div class="category-card" onclick="showPage('energy')">
+          <h2>Particle in a Box</h2>
+          <p>Eₙ = n²h²/8mL²</p>
+        </div>
+        
+        <div class="category-card" onclick="showPage('harmonic')">
+          <h2>Harmonic Oscillator</h2>
+          <p>Eₙ = (n + ½)ħω</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Uncertainty Principle Page -->
+    <div class="page" id="uncertainty">
+      <div class="formula-header">
+        <h2>Heisenberg Uncertainty Principle</h2>
+        <div class="formula-display">
+          Δx · Δp ≥ ħ/2
+        </div>
+      </div>
+      
+      <div class="calculator-form">
+        <div class="form-group">
+          <label for="uncertainty-calculate">Calculate:</label>
+          <select id="uncertainty-calculate">
+            <option value="position">Position Uncertainty (Δx)</option>
+            <option value="momentum">Momentum Uncertainty (Δp)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="momentum-uncertainty">Momentum Uncertainty (Δp) in kg·m/s:</label>
+          <input type="number" id="momentum-uncertainty" placeholder="Enter Δp">
+        
+          <label for="position-uncertainty">Position Uncertainty (Δx) in meters:</label>
+          <input type="number" id="position-uncertainty" placeholder="Enter Δx" disabled>
+        </div>
+        
+        <button onclick="calculateUncertainty()">Calculate</button>
+        
+        <div class="result" id="uncertainty-result"></div>
+        
+        <button class="back-button" onclick="showPage('home')">Back to Categories</button>
+      </div>
+    </div>
+
+    <!-- Schrödinger Equation Page -->
+    <div class="page" id="schrodinger">
+      <div class="formula-header">
+        <h2>Schrödinger Equation</h2>
+        <div class="formula-display">
+          iħ(∂ψ/∂t) = Ĥψ
+        </div>
+      </div>
+      
+      <div class="calculator-form">
+        <div class="form-group">
+          <label for="schrodinger-mass">Particle Mass (kg):</label>
+          <input type="number" id="schrodinger-mass" placeholder="9.10938356e-31">
+        </div>
+        
+        <div class="form-group">
+          <label for="schrodinger-energy">Energy (J):</label>
+          <input type="number" id="schrodinger-energy" placeholder="Enter energy">
+        </div>
+        
+        <button onclick="calculateSchrodinger()">Calculate</button>
+        
+        <div class="result" id="schrodinger-result"></div>
+        
+        <button class="back-button" onclick="showPage('home')">Back to Categories</button>
+      </div>
+    </div>
+
+    <!-- Wave Function Page -->
+    <div class="page" id="wavefunction">
+      <div class="formula-header">
+        <h2>Wave Function</h2>
+        <div class="formula-display">
+          ψ(x) = √(2/L) sin(nπx/L)
+        </div>
+      </div>
+      
+      <div class="calculator-form">
+        <div class="form-group">
+          <label for="wave-length">Box Length (L) in meters:</label>
+          <input type="number" id="wave-length" placeholder="Enter length">
+        </div>
+        
+        <div class="form-group">
+          <label for="wave-n">Quantum Number (n):</label>
+          <input type="number" id="wave-n" placeholder="Enter quantum number" min="1">
+        </div>
+        
+        <div class="form-group">
+          <label for="wave-x">Position (x) in meters:</label>
+          <input type="number" id="wave-x" placeholder="Enter position">
+        </div>
+        
+        <button onclick="calculateWaveFunction()">Calculate</button>
+        
+        <div class="result" id="wave-result"></div>
+        
+        <button class="back-button" onclick="showPage('home')">Back to Categories</button>
+      </div>
+    </div>
+
+    <!-- Particle in a Box Page -->
+    <div class="page" id="energy">
+      <div class="formula-header">
+        <h2>Particle in a Box</h2>
+        <div class="formula-display">
+          Eₙ = n²h²/8mL²
+        </div>
+      </div>
+      
+      <div class="calculator-form">
+        <div class="form-group">
+          <label for="box-n">Quantum Number (n):</label>
+          <input type="number" id="box-n" placeholder="Enter quantum number" min="1">
+        </div>
+        
+        <div class="form-group">
+          <label for="box-mass">Particle Mass (m) in kg:</label>
+          <input type="number" id="box-mass" placeholder="9.10938356e-31">
+        </div>
+        
+        <div class="form-group">
+          <label for="box-length">Box Length (L) in meters:</label>
+          <input type="number" id="box-length" placeholder="Enter length">
+        </div>
+        
+        <button onclick="calculateParticleInBox()">Calculate</button>
+        
+        <div class="result" id="box-result"></div>
+        
+        <button class="back-button" onclick="showPage('home')">Back to Categories</button>
+      </div>
+    </div>
+
+    <!-- Harmonic Oscillator Page -->
+    <div class="page" id="harmonic">
+      <div class="formula-header">
+        <h2>Harmonic Oscillator</h2>
+        <div class="formula-display">
+          Eₙ = (n + ½)ħω
+        </div>
+      </div>
+      
+      <div class="calculator-form">
+        <div class="form-group">
+          <label for="harmonic-n">Quantum Number (n):</label>
+          <input type="number" id="harmonic-n" placeholder="Enter quantum number" min="0">
+        </div>
+        
+        <div class="form-group">
+          <label for="harmonic-frequency">Angular Frequency (ω) in rad/s:</label>
+          <input type="number" id="harmonic-frequency" placeholder="Enter frequency">
+        </div>
+        
+        <button onclick="calculateHarmonicOscillator()">Calculate</button>
+        
+        <div class="result" id="harmonic-result"></div>
+        
+        <button class="back-button" onclick="showPage('home')">Back to Categories</button>
+      </div>
+    </div>
+
+    <!-- Constants Sidebar -->
+    <div class="constants-sidebar">
+      <h3>Physical Constants</h3>
+      <ul>
+        <li>Planck's constant (h): 6.626×10⁻³⁴ J·s</li>
+        <li>Reduced Planck's constant (ħ): 1.055×10⁻³⁴ J·s</li>
+        <li>Electron mass: 9.109×10⁻³¹ kg</li>
+        <li>Proton mass: 1.673×10⁻²⁷ kg</li>
+        <li>Speed of light (c): 2.998×10⁸ m/s</li>
+        <li>Elementary charge (e): 1.602×10⁻¹⁹ C</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
