@@ -32,6 +32,4 @@ What started as a 1 year physics project requirement became a fascinating journe
 ## How to Use 🚀
 1. **Local Setup**:
    ```bash
-   git clone https://github.com/Avika26/Quantum-Mechanics-Calculator.git
-   cd quantum-calculator
    # Open index.html in your browser# Quantum-Mechanics-Calculator
