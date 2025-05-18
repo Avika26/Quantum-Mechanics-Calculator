@@ -2,7 +2,8 @@
 
 **Atomica** - An interactive quantum physics calculator web app built for my physics project. 
 
-![Atomica Screenshot](![image](https://github.com/user-attachments/assets/5e78b4b4-085f-4870-b25d-5fe677ec9176))
+![Atomica Screenshot](![Screenshot 2025-05-18 121657](https://github.com/user-attachments/assets/e46ca3a1-ea5b-48dd-a852-10b8dbcd4a82)
+
 
 ## About This Project 📖
 
