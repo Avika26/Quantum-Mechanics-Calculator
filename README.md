@@ -30,9 +30,7 @@ What started as a 1 year physics project requirement became a fascinating journe
   - Constants reference sidebar
 
 ## How to Use 🚀
-
-1. **Live Demo**: [Try it online here](https://Avika26.github.io/Quantum-Mechanics-Calculator)
-2. **Local Setup**:
+1. **Local Setup**:
    ```bash
    git clone https://github.com/Avika26/Quantum-Mechanics-Calculator.git
    cd quantum-calculator
