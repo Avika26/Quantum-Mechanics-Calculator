@@ -1,8 +1,7 @@
 # Quantum Physics Calculator 🌌⚛️
 
 **Atomica** - An interactive quantum physics calculator web app built for my physics project. 
-
-![Atomica Screenshot](![Screenshot 2025-05-18 121657](https://github.com/user-attachments/assets/e46ca3a1-ea5b-48dd-a852-10b8dbcd4a82)
+![Screenshot 2025-05-18 121657](https://github.com/user-attachments/assets/e46ca3a1-ea5b-48dd-a852-10b8dbcd4a82)
 
 
 ## About This Project 📖
@@ -35,6 +34,6 @@ What started as a 1 year physics project requirement became a fascinating journe
 1. **Live Demo**: [Try it online here](https://Avika26.github.io/Quantum-Mechanics-Calculator)
 2. **Local Setup**:
    ```bash
-   git clone https://github.com/yourusername/quantum-calculator.git
+   git clone https://github.com/Avika26/Quantum-Mechanics-Calculator.git
    cd quantum-calculator
    # Open index.html in your browser# Quantum-Mechanics-Calculator
